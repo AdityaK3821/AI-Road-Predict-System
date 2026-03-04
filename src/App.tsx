@@ -1,11 +1,11 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { 
-  Home, 
-  Info, 
-  Upload, 
-  Map as MapIcon, 
-  TrendingUp, 
+import {
+  Home,
+  Info,
+  Upload,
+  Map as MapIcon,
+  TrendingUp,
   LayoutDashboard,
   Menu,
   X,
@@ -58,7 +58,7 @@ export default function App() {
         <nav className="sticky top-0 z-50 bg-dark-grey/80 backdrop-blur-lg border-b border-white/10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-20">
-              <div 
+              <div
                 className="flex items-center gap-3 cursor-pointer group"
                 onClick={() => setCurrentPage('home')}
               >
@@ -79,8 +79,8 @@ export default function App() {
                     onClick={() => setCurrentPage(item.id as Page)}
                     className={cn(
                       "flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all",
-                      currentPage === item.id 
-                        ? "bg-wood-ash text-dark-grey" 
+                      currentPage === item.id
+                        ? "bg-wood-ash text-dark-grey"
                         : "text-white/70 hover:text-white hover:bg-white/5"
                     )}
                   >
@@ -92,7 +92,7 @@ export default function App() {
 
               {/* Mobile Menu Toggle */}
               <div className="md:hidden">
-                <button 
+                <button
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
                   className="p-2 text-white/70 hover:text-white"
                 >
@@ -104,7 +104,7 @@ export default function App() {
 
           {/* Mobile Nav */}
           {isMenuOpen && (
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               className="md:hidden bg-dark-grey border-b border-white/10 px-4 py-4 space-y-2"
@@ -118,8 +118,8 @@ export default function App() {
                   }}
                   className={cn(
                     "flex items-center gap-3 w-full px-4 py-3 rounded-xl text-base font-medium transition-all",
-                    currentPage === item.id 
-                      ? "bg-wood-ash text-dark-grey" 
+                    currentPage === item.id
+                      ? "bg-wood-ash text-dark-grey"
                       : "text-white/70 hover:text-white hover:bg-white/5"
                   )}
                 >
@@ -154,8 +154,8 @@ export default function App() {
                   <h2 className="text-xl font-bold tracking-tight">ROAD<span className="text-wood-ash">AI</span></h2>
                 </div>
                 <p className="text-white/50 max-w-md leading-relaxed">
-                  Empowering smart cities with AI-driven predictive road maintenance. 
-                  We use advanced computer vision and predictive analytics to ensure safer, 
+                  Empowering smart cities with AI-driven predictive road maintenance.
+                  We use advanced computer vision and predictive analytics to ensure safer,
                   more efficient urban infrastructure.
                 </p>
               </div>
@@ -164,7 +164,7 @@ export default function App() {
                 <ul className="space-y-4">
                   {navItems.slice(0, 4).map(item => (
                     <li key={item.id}>
-                      <button 
+                      <button
                         onClick={() => setCurrentPage(item.id as Page)}
                         className="text-white/50 hover:text-wood-ash transition-colors text-sm"
                       >
@@ -177,9 +177,9 @@ export default function App() {
               <div>
                 <h3 className="text-sm font-bold uppercase tracking-widest text-wood-ash mb-6">Contact</h3>
                 <ul className="space-y-4 text-sm text-white/50">
-                  <li>Smart City Hub, Block 4</li>
-                  <li>New Delhi, India</li>
-                  <li>support@roadai.gov.in</li>
+                  <li>Salem</li>
+                  <li>Tamilnadu, India</li>
+                  <li>aditiyakesavaraj@gmail.com</li>
                 </ul>
               </div>
             </div>
