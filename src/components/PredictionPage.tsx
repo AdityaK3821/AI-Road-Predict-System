@@ -16,7 +16,7 @@ export default function PredictionPage() {
   const handlePredict = async () => {
     setIsPredicting(true);
     const prediction = await predictRoadRisk(inputs);
-    
+
     setTimeout(() => {
       setResult(prediction);
       setIsPredicting(false);
@@ -28,7 +28,7 @@ export default function PredictionPage() {
       <div className="text-center space-y-4">
         <h1 className="text-4xl font-bold">Risk Prediction</h1>
         <p className="text-white/50 max-w-2xl mx-auto">
-          Input environmental and usage factors to predict the future risk level of a road segment. 
+          Input environmental and usage factors to predict the future risk level of a road segment.
           Our AI model analyzes these variables to forecast potential structural failure.
         </p>
       </div>
@@ -50,10 +50,10 @@ export default function PredictionPage() {
                 </label>
                 <span className="text-wood-ash font-bold">{inputs.trafficLevel}</span>
               </div>
-              <input 
+              <input
                 type="range" min="1" max="10" step="1"
                 value={inputs.trafficLevel}
-                onChange={(e) => setInputs({...inputs, trafficLevel: parseInt(e.target.value)})}
+                onChange={(e) => setInputs({ ...inputs, trafficLevel: parseInt(e.target.value) })}
                 className="w-full h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-wood-ash"
               />
               <div className="flex justify-between text-[10px] text-white/30 uppercase tracking-widest">
@@ -71,10 +71,10 @@ export default function PredictionPage() {
                 </label>
                 <span className="text-wood-ash font-bold">{inputs.rainfallLevel} mm</span>
               </div>
-              <input 
+              <input
                 type="range" min="0" max="1000" step="10"
                 value={inputs.rainfallLevel}
-                onChange={(e) => setInputs({...inputs, rainfallLevel: parseInt(e.target.value)})}
+                onChange={(e) => setInputs({ ...inputs, rainfallLevel: parseInt(e.target.value) })}
                 className="w-full h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-wood-ash"
               />
               <div className="flex justify-between text-[10px] text-white/30 uppercase tracking-widest">
@@ -92,16 +92,16 @@ export default function PredictionPage() {
                 </label>
                 <span className="text-wood-ash font-bold">{inputs.existingDamageCount}</span>
               </div>
-              <input 
+              <input
                 type="number"
                 value={inputs.existingDamageCount}
-                onChange={(e) => setInputs({...inputs, existingDamageCount: parseInt(e.target.value) || 0})}
+                onChange={(e) => setInputs({ ...inputs, existingDamageCount: parseInt(e.target.value) || 0 })}
                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-wood-ash transition-colors"
               />
             </div>
           </div>
 
-          <button 
+          <button
             onClick={handlePredict}
             disabled={isPredicting}
             className="btn-primary w-full flex items-center justify-center gap-3 py-4 mt-4"
@@ -124,7 +124,7 @@ export default function PredictionPage() {
         <div className="relative">
           <AnimatePresence mode="wait">
             {isPredicting ? (
-              <motion.div 
+              <motion.div
                 key="loading"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -151,20 +151,18 @@ export default function PredictionPage() {
                 <div className="flex-grow space-y-10">
                   <div className="text-center">
                     <p className="text-xs font-bold uppercase tracking-[0.3em] text-white/40 mb-4">Predicted Risk Level</p>
-                    <div className={`text-6xl font-bold mb-2 ${
-                      result.riskLevel === 'High' ? 'text-red-500' : 
-                      result.riskLevel === 'Medium' ? 'text-yellow-500' : 'text-green-500'
-                    }`}>
+                    <div className={`text-6xl font-bold mb-2 ${result.riskLevel === 'High' ? 'text-red-500' :
+                        result.riskLevel === 'Medium' ? 'text-yellow-500' : 'text-green-500'
+                      }`}>
                       {result.riskLevel}
                     </div>
                     <div className="w-full h-2 bg-white/5 rounded-full overflow-hidden mt-6">
-                      <motion.div 
+                      <motion.div
                         initial={{ width: 0 }}
                         animate={{ width: `${result.riskScore}%` }}
-                        className={`h-full ${
-                          result.riskLevel === 'High' ? 'bg-red-500' : 
-                          result.riskLevel === 'Medium' ? 'bg-yellow-500' : 'bg-green-500'
-                        }`}
+                        className={`h-full ${result.riskLevel === 'High' ? 'bg-red-500' :
+                            result.riskLevel === 'Medium' ? 'bg-yellow-500' : 'bg-green-500'
+                          }`}
                       />
                     </div>
                     <p className="text-sm text-white/40 mt-2">Risk Score: {result.riskScore}/100</p>
@@ -191,7 +189,7 @@ export default function PredictionPage() {
                   </div>
                 </div>
 
-                <button 
+                <button
                   onClick={() => setResult(null)}
                   className="btn-secondary w-full mt-10 flex items-center justify-center gap-2"
                 >
